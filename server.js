@@ -29,28 +29,37 @@ app.get('/', (req, res) => {
 app.get('/contacts', (req, res) => {
     const title = 'Contacts';
     const contacts = [
-        {name:'YouTube', link:'http://youtube.com/YauhenKavalchuk'},
-        {name:'Twitter', link:'http://github.com/YauhenKavalchuk'},
-        {name:'GitHub', link:'http://twitter.com/YauhenKavalchuk'},
+        {name: 'YouTube', link: 'http://youtube.com/YauhenKavalchuk'},
+        {name: 'Twitter', link: 'http://github.com/YauhenKavalchuk'},
+        {name: 'GitHub', link: 'http://twitter.com/YauhenKavalchuk'},
     ];
     res.render(createPath('contacts'), {contacts, title}) //путь
 })
 
 app.get('/posts/:id', (req, res) => {
     const title = 'Post';
-    res.render(createPath('post'), {title}) //путь
+    const post = {
+        id: '1',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quidem provident, dolores, vero laboriosam nemo mollitia impedit unde fugit sint eveniet, minima odio ipsum sed recusandae aut iste aspernatur dolorem.',
+        title: ' Post tittle',
+        date: '05.05.2021',
+        author: 'Yauhen',
+    }
+    res.render(createPath('post'), {title, post}) //путь
 })
 
 app.get('/posts', (req, res) => {
     const title = 'Post';
-    const post = {
-        id:'1',
-        test: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quidem provident, dolores, vero laboriosam nemo mollitia impedit unde fugit sint eveniet, minima odio ipsum sed recusandae aut iste aspernatur dolorem.',
-        title: ' Post tittle',
-        date: '05.05.2021',
-        author:'Yauhen',
-    }
-    res.render(createPath('posts'), {title, post}) //путь
+    const posts = [
+        {
+            id: '1',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quidem provident, dolores, vero laboriosam nemo mollitia impedit unde fugit sint eveniet, minima odio ipsum sed recusandae aut iste aspernatur dolorem.',
+            title: ' Post tittle',
+            date: '05.05.2021',
+            author: 'Yauhen',
+        }
+    ]
+    res.render(createPath('posts'), {title, posts}) //путь
 })
 
 app.get('/add-post', (req, res) => {
@@ -58,7 +67,7 @@ app.get('/add-post', (req, res) => {
     res.render(createPath('add-post'), {title}) //путь
 })
 
-app.use((req,res)=>{
+app.use((req, res) => {
     const title = 'Error Page';
     res
         .status(404) //ошибка
