@@ -43,7 +43,14 @@ app.get('/posts/:id', (req, res) => {
 
 app.get('/posts', (req, res) => {
     const title = 'Post';
-    res.render(createPath('posts'), {title}) //путь
+    const post = {
+        id:'1',
+        test: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quidem provident, dolores, vero laboriosam nemo mollitia impedit unde fugit sint eveniet, minima odio ipsum sed recusandae aut iste aspernatur dolorem.',
+        title: ' Post tittle',
+        date: '05.05.2021',
+        author:'Yauhen',
+    }
+    res.render(createPath('posts'), {title, post}) //путь
 })
 
 app.get('/add-post', (req, res) => {
