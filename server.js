@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
     res.render(createPath('index'), {title})//путь
 })
 
+
 app.get('/contacts', (req, res) => {
     const title = 'Contacts';
     const contacts = [
