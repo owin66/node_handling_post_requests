@@ -63,6 +63,7 @@ app.get('/posts', (req, res) => {
     ]
     res.render(createPath('posts'), {title, posts}) //путь
 })
+
 app.post('/add-post', (req, res) => {
     const {title,author,text} = req.body;
     const post = {
